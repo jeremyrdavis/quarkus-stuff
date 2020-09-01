@@ -21,10 +21,10 @@ public class RestResource {
     @GET
     @Path("/model")
     public Response getModel() {
-        Model retVal = new Model(UUID.randomUUID().toString(), "Spock");
-        System.out.println(retVal.toString());
-        logger.info(retVal.toString());
-        return Response.ok().entity(retVal).build();
+        Message message = new Message(UUID.randomUUID().toString(), "Hello, World!");
+        System.out.println(message.toString());
+        logger.info(message.toString());
+        return Response.ok().entity(message).build();
     }
     
 }

@@ -5,33 +5,33 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import java.util.StringJoiner;
 
 @RegisterForReflection
-public class Model {
+public class Message {
 
     String id;
 
-    String name;
+    String body;
 
     /**
 	 * Empty constructor
 	 */
-	public Model() {
+	public Message() {
         super();
 	}
 
     /**
 	 * @param id
-	 * @param name
+	 * @param body
 	 */
-	public Model(String id, String name) {
+	public Message(String id, String body) {
 		this.id = id;
-		this.name = name;
+		this.body = body;
     }
 
 	@Override
 	public String toString() {
-		return new StringJoiner(", ", Model.class.getSimpleName() + "[", "]")
+		return new StringJoiner(", ", Message.class.getSimpleName() + "[", "]")
 				.add("id='" + id + "'")
-				.add("name='" + name + "'")
+				.add("body='" + body + "'")
 				.toString();
 	}
 
@@ -44,7 +44,7 @@ public class Model {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		return result;
 	}
 
@@ -60,16 +60,16 @@ public class Model {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Model other = (Model) obj;
+		Message other = (Message) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (body == null) {
+			if (other.body != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!body.equals(other.body))
 			return false;
 		return true;
 	}
@@ -89,17 +89,17 @@ public class Model {
 	}
 
 	/**
-	 * @return the name
+	 * @return the body
 	 */
-	public String getName() {
-		return name;
+	public String getBody() {
+		return body;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param body the body to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 }
